@@ -1,11 +1,13 @@
 # Hello-Go
 
-##Dockerを使ったGoの環境構築方法
+## Dockerを使ったGoの環境構築方法
+
 下記同じ手順で最終的にブラウザで"Hello World!"を表示させることができます。
 
-###Goの環境構築からGoファイル作成まで
+### Goの環境構築からGoファイル作成まで
 
--ディレクトリ構成
+- ディレクトリ構成
+
     .
     └ Hello-Go
         ├ docker
@@ -14,9 +16,12 @@
         │   └ docker-compose.yml
         └ src ─ api ─ main.go
 
--.envファイルの作成
+- .envファイルの作成
+
     まずはdocker-compose.ymlなどで使っていく環境変数を.envファイルにまとめていきます。
+
     .envファイルの中身は以下のようになります。
+
     ```
     VOLUMES_DRIVER=local
     ### Paths #################################################
@@ -34,9 +39,12 @@
     GO_VERSION=1.16
     ```
 
--docker-compose.ymlの作成
+- docker-compose.ymlの作成
+
     .envができたら、次はdocker-compose.ymlを作ります。
+
     docker-compose.ymlの中身は以下のようになります。
+
     ```
     version: '3'
     services:
@@ -54,11 +62,16 @@
         tty: true
     ```
 
--Go用のDockerfileの作成
+- Go用のDockerfileの作成
+
     docker-compose.ymlが作成できたら、次はGo用のDockerfileを作ります。
+
     dockerディレクトリ内にapiというディレクトリを作り、その中にDockerfileを作成します。
+
     （apiというディレクトリにする理由は、docker-compose.yml内でcontextの箇所に./apiと指定しているから）
+
     Dockerfileの中身は以下のようになります。
+    
     ```
     ## 使用するGoのバージョンを指定
     ARG GO_VERSION=${GO_VERSION}
@@ -73,11 +86,16 @@
     WORKDIR /Hello-Go/src/api
     ```
 
--Goファイルの作成
+- Goファイルの作成
+
     Go用のDockerfileが作成できたら、最後にGoファイルを作ります。
+
     Hello-Goディレクトリ内に、src/apiという階層でディレクトリを作成します。
+
     そして、apiのディレクトリの中でmain.goというファイルを作成します。
+
     main.goの中身は以下のようになります。
+
     ```
     package main
     
@@ -98,14 +116,15 @@
     ```
 
 
-##Dockerの立ち上げから"Hello World!"まで
+## Dockerの立ち上げから"Hello World!"まで
 
 上記各ファイル作成後、以下のコマンドをdocker-compose.ymlがあるディレクトリで実行する。
--docker-compose up -d (dockerの立ち上げ)
--docker exec -it docker_go_api sh (dockerのコンテナの中に入る)
--ls (main.go出てくる)
--go run main.go (Goのビルドを行い、立ち上げる)
 
-上記コマンド全て実行後、http://localhost:8000/ にアクセス
-"Hello World!"表示される。
+- docker-compose up -d (dockerの立ち上げ)
+- docker exec -it docker_go_api sh (dockerのコンテナの中に入る)
+- ls (main.go出てくる)
+- go run main.go (Goのビルドを行い、立ち上げる)
+
+- 上記コマンド全て実行後、http://localhost:8000/ にアクセス
+- "Hello World!"表示される。
 
