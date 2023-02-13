@@ -9,12 +9,12 @@
 - ディレクトリ構成
 
     .
-    └ Hello-Go
-        ├ docker
-        │   ├ api ─ Dockerfile
-        │   ├ .env
-        │   └ docker-compose.yml
-        └ src ─ api ─ main.go
+    └ Hello-Go/
+        ├ docker/
+        │   ├ api/ ─ Dockerfile/
+        │   ├ .env/
+        │   └ docker/ - compose.yml/
+        └ src/ ─ api/ ─ main.go/
 
 - .envファイルの作成
 
@@ -71,7 +71,7 @@
     （apiというディレクトリにする理由は、docker-compose.yml内でcontextの箇所に./apiと指定しているから）
 
     Dockerfileの中身は以下のようになります。
-    
+
     ```
     ## 使用するGoのバージョンを指定
     ARG GO_VERSION=${GO_VERSION}
