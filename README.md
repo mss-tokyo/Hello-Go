@@ -9,12 +9,18 @@
 - ディレクトリ構成
 
     .
-    └ Hello-Go/
-        ├ docker/
-        │   ├ api/ ─ Dockerfile/
-        │   ├ .env/
-        │   └ docker/ - compose.yml/
-        └ src/ ─ api/ ─ main.go/
+    
+    └ Hello-Go
+
+        ├ docker
+
+        │   ├ api ─ Dockerfile
+
+        │   ├ .env
+
+        │   └ docker - compose.yml
+
+        └ src ─ api ─ main.go
 
 - .envファイルの作成
 
