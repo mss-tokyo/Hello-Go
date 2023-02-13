@@ -1,0 +1,14 @@
+version: '3'
+services:
+  api:
+    container_name: docker_go_api
+    build:
+      context: ./api
+      args:
+        - GO_VERSION=${GO_VERSION}
+        - API_CODE_WORKDIR=${API_CODE_WORKDIR}
+    volumes:
+      - ${API_CODE_LOCAL_PATH}:${API_CODE_WORKDIR}
+    ports:
+      - ${API_PORT}:${API_PORT}
+    tty: true
