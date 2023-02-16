@@ -6,23 +6,20 @@
 
 ### Goの環境構築からGoファイル作成まで
 
-- ディレクトリ構成
-
-    .
+1. ディレクトリ構成
     
+    ```
+    .
     └ Hello-Go
-
         ├ docker
-
         │   ├ api ─ Dockerfile
-
         │   ├ .env
-
         │   └ docker - compose.yml
+        ├ src ─ api ─ main.go
+        └ README.md
+    ```
 
-        └ src ─ api ─ main.go
-
-- .envファイルの作成
+1. .envファイルの作成
 
     まずはdocker-compose.ymlなどで使っていく環境変数を.envファイルにまとめていきます。
 
@@ -45,7 +42,7 @@
     GO_VERSION=1.16
     ```
 
-- docker-compose.ymlの作成
+1. docker-compose.ymlの作成
 
     .envができたら、次はdocker-compose.ymlを作ります。
 
@@ -68,7 +65,7 @@
         tty: true
     ```
 
-- Go用のDockerfileの作成
+1. Go用のDockerfileの作成
 
     docker-compose.ymlが作成できたら、次はGo用のDockerfileを作ります。
 
@@ -92,7 +89,7 @@
     WORKDIR /Hello-Go/src/api
     ```
 
-- Goファイルの作成
+1. Goファイルの作成
 
     Go用のDockerfileが作成できたら、最後にGoファイルを作ります。
 
@@ -126,11 +123,11 @@
 
 上記各ファイル作成後、以下のコマンドをdocker-compose.ymlがあるディレクトリで実行する。
 
-- docker-compose up -d (dockerの立ち上げ)
-- docker exec -it docker_go_api sh (dockerのコンテナの中に入る)
-- ls (main.go出てくる)
-- go run main.go (Goのビルドを行い、立ち上げる)
+1. docker-compose up -d (dockerの立ち上げ)
+1. docker exec -it docker_go_api sh (dockerのコンテナの中に入る)
+1. ls (main.go出てくる)
+1. go run main.go (Goのビルドを行い、立ち上げる)
 
-- 上記コマンド全て実行後、http://localhost:8000/ にアクセス
-- "Hello World!"表示される。
+1. 上記コマンド全て実行後、http://localhost:8000/ にアクセス
+1. "Hello World!"表示される。
 
