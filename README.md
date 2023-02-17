@@ -8,16 +8,16 @@
 
 1. ディレクトリ構成
     
-    ```
-    .
-    └ Hello-Go
-        ├ docker
-        │   ├ api ─ Dockerfile
-        │   ├ .env
-        │   └ docker - compose.yml
-        ├ src ─ api ─ main.go
-        └ README.md
-    ```
+```
+.
+└Hello-Go
+    ├docker
+    │   ├api─Dockerfile
+    │   ├.env
+    │   └docker-compose.yml
+    ├src─api─main.go
+    └README.md
+```
 
 1. .envファイルの作成
 
